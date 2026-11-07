@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ps" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071b2b"><meta name="description" content="د Easyload دوکان او حسابونو اپلیکیشن">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png">
+<title>EasyLoad Pro</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="brand"><div class="logo">E</div><div><b>Javid AHMADI</b><small>EasyLoad Pro · د ایزي لوډ مدیریت</small></div></div><span class="offline" id="connection">آفلاین چمتو</span></header>
+<main>
+<section class="welcome"><div><p class="eyebrow">ښه راغلاست</p><h1>د خپل دوکان حسابونه اداره کړئ</h1><p>خرڅلاو، ګټه او مشتریان په یوه ځای کې.</p></div><div class="date" id="today"></div></section>
+<section class="stats">
+ <article><span>د نن خرڅلاو</span><strong id="todaySales">۰ افغانۍ</strong></article>
+ <article><span>د نن ګټه</span><strong id="todayProfit">۰ افغانۍ</strong></article>
+ <article><span>ټولې معاملې</span><strong id="totalTx">۰</strong></article>
+</section>
+<nav class="tabs">
+<button class="tab active" data-tab="sale">نوی لوډ</button><button class="tab" data-tab="ledger">مشتریان</button><button class="tab" data-tab="history">معاملې</button><button class="tab" data-tab="reports">راپور</button>
+</nav>
+<section class="panel active" id="sale">
+ <h2>نوې معامله</h2>
+ <form id="saleForm">
+  <label>مخابراتي شبکه<select id="network"><option>Roshan</option><option>AWCC</option><option>Etisalat</option><option>MTN</option><option>Salaam</option></select></label>
+  <label>د مشتری نوم (اختیاري)<input id="customer" placeholder="د مشتری نوم"></label>
+  <label>موبایل شمېره<input id="phone" inputmode="tel" placeholder="07XXXXXXXX"></label>
+  <div class="two">
+   <label>د لوډ اندازه (افغانۍ)<input id="amount" type="number" min="1" step="1" placeholder="100" required></label>
+   <label>د ګټې سلنه (%)<input id="rate" type="number" min="0" step="0.1" value="2"></label>
+  </div>
+  <div class="calc"><div><span>اټکلي ګټه</span><b id="profitPreview">۰ افغانۍ</b></div><div><span>ټول قیمت</span><b id="totalPreview">۰ افغانۍ</b></div></div>
+  <label>د تادیې حالت<select id="payment"><option value="paid">ورکړل شوې</option><option value="due">پور / پاتې</option></select></label>
+  <button class="primary" type="submit">معامله ثبت کړه</button>
+  <p class="hint">دا نسخه معامله ثبتوي؛ مستقیم کریډیټ نه لېږي. د شبکو رسمي API ته اړتیا ده.</p>
+ </form>
+</section>
+<section class="panel" id="ledger"><div class="sectionhead"><h2>د مشتریانو حسابونه</h2><span class="pill" id="debtCount">۰ پورونه</span></div><div id="customerList" class="empty">تر اوسه مشتریان نشته.</div></section>
+<section class="panel" id="history"><div class="sectionhead"><h2>د معاملاتو تاریخچه</h2><button class="small" id="exportBtn">CSV صادرول</button></div><div id="txList" class="empty">تر اوسه معامله نشته.</div></section>
+<section class="panel" id="reports"><h2>د خرڅلاو راپور</h2><div class="reportgrid"><article><span>ټول خرڅلاو</span><b id="allSales">۰</b></article><article><span>ټوله ګټه</span><b id="allProfit">۰</b></article><article><span>پاتې پورونه</span><b id="allDebt">۰</b></article></div><h3>د شبکو له مخې خرڅلاو</h3><div id="networkReport"></div><button class="danger" id="clearBtn">ټول معلومات پاکول</button></section>
+</main>
+<footer>EasyLoad Pro · ستاسو د دوکان ملګری</footer>
+<script src="app.js"></script>
+</body></html>
